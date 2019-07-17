@@ -1,5 +1,6 @@
 package base;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,7 @@ public class TestBase {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/mac/chromedriver75_mac");
         driver = new ChromeDriver();
+        WebDriverRunner.setWebDriver(driver);
     }
 
     @After
