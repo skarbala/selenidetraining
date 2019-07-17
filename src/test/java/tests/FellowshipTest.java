@@ -13,11 +13,13 @@ import org.openqa.selenium.WebElement;
 
 import base.TestBase;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class FellowshipTest extends TestBase {
 
     @Before
     public void openPage() {
-        driver.get(BASE_URL + "/fellowship.php");
+        open(BASE_URL + "/fellowship.php");
     }
 
     @Test

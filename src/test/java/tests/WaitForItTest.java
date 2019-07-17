@@ -10,11 +10,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class WaitForItTest extends TestBase {
 
     @Before
     public void openPage() {
-        driver.get(BASE_URL + "/waitforit.php");
+        open(BASE_URL + "/waitforit.php");
     }
 
     @Test

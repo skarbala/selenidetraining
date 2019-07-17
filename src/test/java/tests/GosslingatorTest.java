@@ -10,19 +10,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class GosslingatorTest {
 
     private WebDriver driver;
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver75_mac");
-        //0.spustit prehliadac
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless");
-        driver = new ChromeDriver(chromeOptions);
-        //1.otvorit stranku
-        driver.get("http://localhost:8888/gosslingator.php");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/win/chromedriver75_win.exe");
+        driver = new ChromeDriver();
+        open("http://localhost:80/gosslingator.php");
     }
 
     @Test
@@ -60,11 +58,11 @@ public class GosslingatorTest {
             addRyanButton.click();
         }
         Assert.assertEquals(
-            "NUMBER OF\n" +
-                "RYANS\n" +
-                "IS TOO DAMN\n" +
-                "HIGH",
-            driver.findElement(By.cssSelector("h1.tooManyRyans")).getText()
+                "NUMBER OF\n" +
+                        "RYANS\n" +
+                        "IS TOO DAMN\n" +
+                        "HIGH",
+                driver.findElement(By.cssSelector("h1.tooManyRyans")).getText()
         );
     }
 

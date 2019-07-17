@@ -7,12 +7,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class SortingHatTest extends TestBase {
 
 
     @Test
     public void itShouldDisplayNameOfHouse() {
-        driver.get(BASE_URL + "/sortinghat.php");
+        open(BASE_URL + "/sortinghat.php");
         driver.findElement(By.cssSelector("button")).click();
         new WebDriverWait(driver, 10)
             .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.loading")));

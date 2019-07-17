@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.SavingsCalculatorPage;
 
+import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.*;
 import static org.openqa.selenium.By.cssSelector;
 
@@ -19,7 +20,7 @@ public class SavingsCalculatorTest extends TestBase {
 
     @Before
     public void openPage() {
-        driver.get(BASE_URL.concat("/savingscalculator.php"));
+        open(BASE_URL.concat("/savingscalculator.php"));
         savingsCalculatorPage = new SavingsCalculatorPage(driver);
     }
 

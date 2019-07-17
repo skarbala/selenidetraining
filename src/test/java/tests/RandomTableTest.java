@@ -11,11 +11,13 @@ import org.openqa.selenium.WebElement;
 
 import base.TestBase;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class RandomTableTest extends TestBase {
     @Before
     public void openPage() {
         //1.otvorit stranku
-        driver.get(BASE_URL + "/tabulka.php");
+        open(BASE_URL + "/tabulka.php");
     }
 
     @Test
