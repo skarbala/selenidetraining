@@ -30,6 +30,10 @@ public class SpelleologyTest extends TestBase {
                 spellElement.click();
             }
         }
+        new WebDriverWait(driver, 10)
+            .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-container")));
+        WebElement modal = driver.findElement(By.cssSelector("div.modal-container"));
+        Assert.assertTrue(modal.getText().contains("Crucio"));
     }
 
     @Test
