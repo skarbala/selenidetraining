@@ -12,10 +12,8 @@ public class TestBase {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver75_mac");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless");
-        driver = new ChromeDriver(chromeOptions);
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/mac/chromedriver75_mac");
+        driver = new ChromeDriver();
     }
 
     @After

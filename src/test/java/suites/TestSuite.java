@@ -11,7 +11,8 @@ import tests.*;
     RandomTableTest.class,
     SavingsCalculatorTest.class,
     SortingHatTest.class,
-    WaitForItTest.class
+    WaitForItTest.class,
+    SpelleologyTest.class
 })
 public class TestSuite {
 }
