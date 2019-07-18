@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class GosslingatorTest {
@@ -31,7 +32,7 @@ public class GosslingatorTest {
 
     @Test
     public void itShouldAddOneRyan() {
-        driver.findElement(By.id("addRyan")).click();
+        $(By.id("addRyan")).click();
 
         String actualNumberOfRyans = driver.findElement(By.id("ryanCounter")).getText();
         Assert.assertEquals("1", actualNumberOfRyans);
