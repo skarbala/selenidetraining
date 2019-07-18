@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class WaitForItTest extends TestBase {
@@ -22,8 +23,8 @@ public class WaitForItTest extends TestBase {
     @Test
     public void waitForValue() {
         String expectedText = "dary !!!";
-        driver.findElement(By.id("startWaitForText")).click();
-        WebElement input = driver.findElement(By.id("waitForTextInput"));
+        $(By.id("startWaitForText")).click();
+        WebElement input = $(By.id("waitForTextInput"));
 
         new WebDriverWait(driver, 5)
             .until(ExpectedConditions.attributeToBe(input, "value", expectedText));
@@ -33,7 +34,7 @@ public class WaitForItTest extends TestBase {
 
     @Test
     public void waitForClass() {
-        driver.findElement(By.id("startWaitForProperty")).click();
+        $(By.id("startWaitForProperty")).click();
 
         new WebDriverWait(driver, 10)
             .until(ExpectedConditions.attributeContains(By.id("waitForProperty"),"class","error"));

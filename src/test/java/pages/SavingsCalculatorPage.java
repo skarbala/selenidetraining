@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import static com.codeborne.selenide.Selenide.$;
+
 public class SavingsCalculatorPage {
     @FindBy(id = "emailInput")
     private WebElement emailInput;
@@ -67,7 +69,7 @@ public class SavingsCalculatorPage {
     }
 
     public WebElement getCalculatedInterestIncomeElement() {
-        return pageDriver.findElement(By.cssSelector("div.result > div:nth-child(2) p"));
+        return $(By.cssSelector("div.result > div:nth-child(2) p"));
     }
 
     public WebElement getCalculatedRiskElement() {

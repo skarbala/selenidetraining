@@ -27,27 +27,27 @@ public class GosslingatorTest {
 
     @Test
     public void itShouldDisplayTitle() {
-        Assert.assertEquals("GOSLINGATE ME", driver.findElement(By.cssSelector(".ryan-title")).getText());
+        Assert.assertEquals("GOSLINGATE ME",$(By.cssSelector(".ryan-title")).getText());
     }
 
     @Test
     public void itShouldAddOneRyan() {
         $(By.id("addRyan")).click();
 
-        String actualNumberOfRyans = driver.findElement(By.id("ryanCounter")).getText();
+        String actualNumberOfRyans = $(By.id("ryanCounter")).getText();
         Assert.assertEquals("1", actualNumberOfRyans);
 
-        System.out.println("Number of ryans: " + driver.findElement(By.cssSelector("div.ryan-counter h2")).getText());
-        Assert.assertEquals("ryan", driver.findElement(By.cssSelector("div.ryan-counter h3")).getText());
+        System.out.println("Number of ryans: " + $(By.cssSelector("div.ryan-counter h2")).getText());
+        Assert.assertEquals("ryan", $(By.cssSelector("div.ryan-counter h3")).getText());
     }
 
     @Test
     public void itShouldTwoRyans() {
-        driver.findElement(By.id("addRyan")).click();
-        driver.findElement(By.id("addRyan")).click();
+        $(By.id("addRyan")).click();
+        $(By.id("addRyan")).click();
 
-        String actualNumberOfRyans = driver.findElement(By.id("ryanCounter")).getText();
-        String actualRyanDescription = driver.findElement(By.cssSelector("div.ryan-counter h3")).getText();
+        String actualNumberOfRyans = $(By.id("ryanCounter")).getText();
+        String actualRyanDescription = $(By.cssSelector("div.ryan-counter h3")).getText();
 
         Assert.assertEquals("2", actualNumberOfRyans);
         Assert.assertEquals("ryans", actualRyanDescription);
@@ -55,7 +55,7 @@ public class GosslingatorTest {
 
     @Test
     public void itShouldDisplayWarningMessage() {
-        WebElement addRyanButton = driver.findElement(By.id("addRyan"));
+        WebElement addRyanButton = $(By.id("addRyan"));
         for (int i = 0; i < 50; i++) {
             addRyanButton.click();
         }
@@ -64,7 +64,7 @@ public class GosslingatorTest {
                         "RYANS\n" +
                         "IS TOO DAMN\n" +
                         "HIGH",
-                driver.findElement(By.cssSelector("h1.tooManyRyans")).getText()
+                $(By.cssSelector("h1.tooManyRyans")).getText()
         );
     }
 

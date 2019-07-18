@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 
 import base.TestBase;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class FellowshipTest extends TestBase {
@@ -58,7 +59,7 @@ public class FellowshipTest extends TestBase {
             selectFellow(fellowToSelect);
         }
 
-        Assert.assertEquals("Complete", driver.findElement(By.cssSelector("div.points-left h3")).getText());
+        Assert.assertEquals("Complete", $(By.cssSelector("div.points-left h3")).getText());
     }
 
     @Test
@@ -96,7 +97,7 @@ public class FellowshipTest extends TestBase {
     }
 
     private void selectFellow(String fellowName) {
-        driver.findElement(By.xpath("//h1[contains(text(),'" + fellowName + "')]")).click();
+        $(By.xpath("//h1[contains(text(),'" + fellowName + "')]")).click();
     }
 
     private List<WebElement> getFellowElements() {
