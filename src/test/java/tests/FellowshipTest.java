@@ -13,7 +13,9 @@ import org.openqa.selenium.WebElement;
 
 import base.TestBase;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 
 public class FellowshipTest extends TestBase {
@@ -97,7 +99,8 @@ public class FellowshipTest extends TestBase {
     }
 
     private void selectFellow(String fellowName) {
-        $(By.xpath("//h1[contains(text(),'" + fellowName + "')]")).click();
+        $x("//h1[contains(text(),'" + fellowName + "')]").click();
+        $(byText(fellowName)).click();
     }
 
     private List<WebElement> getFellowElements() {
