@@ -50,7 +50,7 @@ public class SpelleologyTest extends TestBase {
         }
         new WebDriverWait(driver, 10)
             .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-container")));
-        WebElement modal = $(By.cssSelector("div.modal-container"));
+        WebElement modal = $("div.modal-container");
         Assert.assertTrue(modal.getText().contains("Crucio"));
     }
 

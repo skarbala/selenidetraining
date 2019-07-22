@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -27,27 +26,26 @@ public class GosslingatorTest {
 
     @Test
     public void itShouldDisplayTitle() {
-        Assert.assertEquals("GOSLINGATE ME",$(By.cssSelector(".ryan-title")).getText());
+        Assert.assertEquals("GOSLINGATE ME", $(".ryan-title").getText());
     }
 
     @Test
     public void itShouldAddOneRyan() {
-        $(By.id("addRyan")).click();
+        addRyan();
 
         String actualNumberOfRyans = $(By.id("ryanCounter")).getText();
         Assert.assertEquals("1", actualNumberOfRyans);
 
-        System.out.println("Number of ryans: " + $(By.cssSelector("div.ryan-counter h2")).getText());
-        Assert.assertEquals("ryan", $(By.cssSelector("div.ryan-counter h3")).getText());
+        System.out.println("Number of ryans: " + $("div.ryan-counter h2").getText());
+        Assert.assertEquals("ryan", $("div.ryan-counter h3").getText());
     }
 
     @Test
     public void itShouldTwoRyans() {
-        $(By.id("addRyan")).click();
-        $(By.id("addRyan")).click();
+        addRyan(2);
 
         String actualNumberOfRyans = $(By.id("ryanCounter")).getText();
-        String actualRyanDescription = $(By.cssSelector("div.ryan-counter h3")).getText();
+        String actualRyanDescription = $("div.ryan-counter h3").getText();
 
         Assert.assertEquals("2", actualNumberOfRyans);
         Assert.assertEquals("ryans", actualRyanDescription);
@@ -55,10 +53,7 @@ public class GosslingatorTest {
 
     @Test
     public void itShouldDisplayWarningMessage() {
-        WebElement addRyanButton = $(By.id("addRyan"));
-        for (int i = 0; i < 50; i++) {
-            addRyanButton.click();
-        }
+        addRyan(50);
         Assert.assertEquals(
                 "NUMBER OF\n" +
                         "RYANS\n" +
@@ -78,4 +73,15 @@ public class GosslingatorTest {
         driver.close();
         driver.quit();
     }
+
+    private void addRyan() {
+        $(By.id("addRyan")).click();
+    }
+
+    private void addRyan(int numberOfRyans) {
+        for (int i = 0; i < numberOfRyans; i++) {
+            $(By.id("addRyan")).click();
+        }
+    }
+
 }

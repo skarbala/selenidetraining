@@ -16,7 +16,7 @@ public class SortingHatTest extends TestBase {
     @Test
     public void itShouldDisplayNameOfHouse() {
         open(BASE_URL + "/sortinghat.php");
-        driver.findElement(By.cssSelector("button")).click();
+        $("button").click();
         new WebDriverWait(driver, 10)
             .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.loading")));
         new WebDriverWait(driver, 10)

@@ -59,7 +59,7 @@ public class FellowshipTest extends TestBase {
             selectFellow(fellowToSelect);
         }
 
-        Assert.assertEquals("Complete", $(By.cssSelector("div.points-left h3")).getText());
+        Assert.assertEquals("Complete", $("div.points-left h3").getText());
     }
 
     @Test
