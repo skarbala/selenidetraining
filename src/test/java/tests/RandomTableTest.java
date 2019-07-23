@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 
 import base.TestBase;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class RandomTableTest extends TestBase {
@@ -35,6 +36,12 @@ public class RandomTableTest extends TestBase {
             WebElement rowName = tableRow.findElement(By.xpath("./td[2]"));
             Assert.assertFalse(rowName.getText().isEmpty());
         }
+    }
+
+    @Test
+    public void itShouldDisplaySecondRow() {
+        System.out.println(driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]")).getText());
+        System.out.println($("table > tbody >tr",1).find("td",3).getText());
     }
 
     @Test
