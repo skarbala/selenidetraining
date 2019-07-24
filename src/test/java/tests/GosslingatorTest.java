@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.After;
 import org.junit.Assert;
@@ -54,13 +55,12 @@ public class GosslingatorTest {
     @Test
     public void itShouldDisplayWarningMessage() {
         addRyan(50);
-        Assert.assertEquals(
+        $(By.cssSelector("h1.tooManyRyans")).shouldHave(Condition.exactText(
                 "NUMBER OF\n" +
-                        "RYANS\n" +
-                        "IS TOO DAMN\n" +
-                        "HIGH",
-                $(By.cssSelector("h1.tooManyRyans")).getText()
-        );
+                "RYANS\n" +
+                "IS TOO DAMN\n" +
+                "HIGH"
+        ));
     }
 
     @Test
