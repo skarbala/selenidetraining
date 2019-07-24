@@ -36,4 +36,14 @@ public class WaitForItTest extends TestBase {
         new WebDriverWait(driver, 10)
             .until(ExpectedConditions.attributeContains(By.id("waitForProperty"),"class","error"));
     }
+
+    @Test
+    public void itShouldDisplayResponseTimeMessage() {
+        driver.findElement(By.id("startWaitForText")).click();
+
+        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElement(
+            driver.findElement(By.cssSelector("div.current-wait-time")),
+            "Response time"));
+        Assert.assertTrue(driver.findElement(By.cssSelector("div.current-wait-time")).getText().contains("Response time"));
+    }
 }
