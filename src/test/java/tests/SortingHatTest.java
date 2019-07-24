@@ -1,6 +1,7 @@
 package tests;
 
 import base.TestBase;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,6 +18,6 @@ public class SortingHatTest extends TestBase {
             .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.loading")));
         new WebDriverWait(driver, 10)
             .until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("img.loading")));
-        System.out.println(driver.findElement(By.cssSelector("p.result")).getText().isEmpty());
+        Assert.assertFalse(driver.findElement(By.cssSelector("p.result")).getText().isEmpty());
     }
 }
