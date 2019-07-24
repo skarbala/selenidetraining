@@ -99,7 +99,6 @@ public class FellowshipTest extends TestBase {
     }
 
     private void selectFellow(String fellowName) {
-        $x("//h1[contains(text(),'" + fellowName + "')]").click();
         $(byText(fellowName)).click();
     }
 
