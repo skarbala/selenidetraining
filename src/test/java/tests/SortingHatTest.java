@@ -23,5 +23,14 @@ public class SortingHatTest extends TestBase {
         $("p.result").shouldBe(visible).shouldNotBe(empty);
     }
 
-
+    @Test
+    public void itShouldDisplayGryffindor() {
+        open(BASE_URL + "/sortinghat.php");
+        String generatedHouse = "";
+        while (!generatedHouse.equals("Slytherin")){
+            $("button").shouldBe(enabled).click();
+            $("img.loading").should(appear).should(disappear);
+            generatedHouse = $("p.result").shouldBe(visible).shouldNotBe(empty).getText();
+        }
+    }
 }
