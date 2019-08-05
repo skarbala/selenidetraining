@@ -19,7 +19,7 @@ public class SortingHatTest extends TestBase {
     public void itShouldDisplayNameOfHouse() {
         open(BASE_URL + "/sortinghat.php");
         $("button").click();
-        $("img.loading").should(appear).should(disappear);
+        $("img.loading").waitUntil(appears, 15000).waitUntil(disappears, 10000);
         $("p.result").shouldBe(visible).shouldNotBe(empty);
     }
 
