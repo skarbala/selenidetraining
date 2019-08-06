@@ -1,8 +1,14 @@
 package tests;
 
 import base.TestBase;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.SavingsCalculatorPage;
 
 import static org.junit.Assert.*;
@@ -71,6 +77,21 @@ public class SavingsCalculatorTest extends TestBase {
     public void itShouldDisplayErrorMessageWhenEmailIsInvalid() {
         savingsCalculatorPage.enterEmail("invalid");
         assertTrue(savingsCalculatorPage.getEmailInputWrapper().getAttribute("class").contains("error"));
+    }
+
+    @Test
+    public void itShouldHighlightNewRequestOnHover() throws InterruptedException {
+        savingsCalculatorPage.selectFund("Hoggwart's Fund");
+        savingsCalculatorPage.enterOneTimeInvestment("15000");
+        savingsCalculatorPage.enterYears(20);
+        savingsCalculatorPage.enterEmail("info@furbo.sk");
+        savingsCalculatorPage.applyForSaving();
+
+        Actions action = new Actions(driver);
+        WebElement we = driver.findElement(By.cssSelector("div.saving-detail"));
+        action.moveToElement(we).build().perform();
+        Thread.sleep(300);
+        assertEquals("rgba(4, 102, 156, 1)", we.getCssValue("background-color"));
     }
 }
 
