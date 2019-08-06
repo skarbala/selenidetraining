@@ -67,6 +67,11 @@ public class SavingsCalculatorTest extends TestBase {
         );
     }
 
+    @Test
+    public void itShouldDisplayErrorMessageWhenEmailIsInvalid() {
+        savingsCalculatorPage.enterEmail("invalid");
+        assertTrue(savingsCalculatorPage.getEmailInputWrapper().getAttribute("class").contains("error"));
+    }
 }
 
 
