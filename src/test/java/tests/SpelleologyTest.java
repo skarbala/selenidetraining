@@ -21,10 +21,10 @@ public class SpelleologyTest extends TestBase {
 
     @Test
     public void itShouldContainSpells() {
+        String[] spellsToBePresent = {"produces a snake", "enlarges an item", "repairs things", "controls a person"};
+
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("ul.spells li")));
-
-        String[] spellsToBePresent = {"produces a snake", "enlarges an item", "repairs things", "controls a person"};
         List<String> displayedSpells = driver.findElements(By.cssSelector("ul.spells li"))
                 .stream()
                 .map(WebElement::getText)
