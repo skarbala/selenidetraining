@@ -44,9 +44,7 @@ public class SpelleologyTest extends TestBase {
 
     @Test
     public void itShouldDisplayTortureSpell() {
-        new WebDriverWait(driver, 10)
-                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("ul.spells li")));
-        List<WebElement> spellElements = driver.findElements(By.cssSelector("ul.spells li"));
+        ElementsCollection spellElements = $$("ul.spells li").shouldHave(sizeGreaterThan(1));
 
         for (WebElement spellElement : spellElements) {
             if (spellElement.getText().equals("tortures a person")) {
@@ -54,17 +52,15 @@ public class SpelleologyTest extends TestBase {
             }
         }
         new WebDriverWait(driver, 10)
-            .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-container")));
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-container")));
         WebElement modal = $("div.modal-container");
         Assert.assertTrue(modal.getText().contains("Crucio"));
     }
 
     @Test
     public void itShouldFilterSpells() {
-        $(By.cssSelector("input")).sendKeys("tortures a person");
-        new WebDriverWait(driver, 10).until(ExpectedConditions
-                .numberOfElementsToBe(By.cssSelector("ul.spells li"), 1));
-        Assert.assertEquals(driver.findElements(By.cssSelector("ul.spells li")).size(), 1);
+        $("input").sendKeys("tortures a person");
+        $$("ul.spells li").shouldHave(size(1));
     }
 
 }
