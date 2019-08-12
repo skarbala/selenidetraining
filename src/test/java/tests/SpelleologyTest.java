@@ -31,7 +31,8 @@ public class SpelleologyTest extends TestBase {
     public void itShouldContainSpells() {
         String[] spellsToBePresent = {"produces a snake", "enlarges an item", "repairs things", "controls a person"};
 
-        List<String> displayedSpells = $$("ul.spells li")
+        List<String> displayedSpells = $("ul.spells")
+                .findAll("li")
                 .shouldHave(sizeGreaterThan(1))
                 .stream()
                 .map(SelenideElement::getText)
@@ -44,7 +45,9 @@ public class SpelleologyTest extends TestBase {
 
     @Test
     public void itShouldDisplayTortureSpell() {
-        ElementsCollection spellElements = $$("ul.spells li").shouldHave(sizeGreaterThan(1));
+        ElementsCollection spellElements = $("ul.spells")
+                .findAll("li")
+                .shouldHave(sizeGreaterThan(1));
 
         for (WebElement spellElement : spellElements) {
             if (spellElement.getText().equals("tortures a person")) {
