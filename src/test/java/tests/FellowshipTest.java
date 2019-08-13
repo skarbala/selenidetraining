@@ -2,6 +2,8 @@ package tests;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -65,6 +67,29 @@ public class FellowshipTest extends TestBase {
             String actualPoints = displayedFellow.findElement(By.cssSelector("div.fellow-points h2")).getText();
 
             Assert.assertFalse(actualPoints.isEmpty());
+        }
+    }
+
+    @Test
+    public void itShouldHighlightFellows() {
+        List<String> fellowsToSelect = new ArrayList<String>();
+        fellowsToSelect.add("Gandalf");
+        fellowsToSelect.add("Aragorn");
+        fellowsToSelect.add("Legolas");
+        fellowsToSelect.add("Frodo");
+
+        for (String fellowToSelect : fellowsToSelect) {
+            selectFellow(fellowToSelect);
+        }
+
+        List<String> higlightedFellows =
+                driver.findElements(By.xpath("//ul[contains(@class,'list-of-fellows')]/li/div[contains(@class,'active')]//h1"))
+                        .stream()
+                        .map(WebElement::getText)
+                        .collect(Collectors.toList());
+
+        for (String higlightedFellow : higlightedFellows) {
+            Assert.assertTrue(fellowsToSelect.contains(higlightedFellow));
         }
     }
 
