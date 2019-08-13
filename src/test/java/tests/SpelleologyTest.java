@@ -37,7 +37,16 @@ public class SpelleologyTest extends TestBase {
         $("div.modal-container")
                 .should(appear)
                 .shouldHave(text("Crucio"));
-     }
+    }
+
+    @Test
+    public void itShouldExcludeSpells() {
+        $("ul.spells")
+                .findAll("li")
+                .shouldHave(sizeGreaterThan(1))
+                .filterBy(matchText("^shoots.*"))
+                .forEach(selenideElement -> System.out.println(selenideElement.getText()));
+    }
 
     @Test
     public void itShouldFilterSpells() {
