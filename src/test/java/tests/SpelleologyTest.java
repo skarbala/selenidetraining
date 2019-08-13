@@ -12,13 +12,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.codeborne.selenide.CollectionCondition.size;
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static utils.DataUtils.getExpectedSpells;
 
 public class SpelleologyTest extends TestBase {
 
@@ -28,19 +29,10 @@ public class SpelleologyTest extends TestBase {
     }
 
     @Test
-    public void itShouldContainSpells() {
-        String[] spellsToBePresent = {"produces a snake", "enlarges an item", "repairs things", "controls a person"};
-
-        List<String> displayedSpells = $("ul.spells")
+    public void itShouldContainSpells() throws FileNotFoundException {
+        $("ul.spells")
                 .findAll("li")
-                .shouldHave(sizeGreaterThan(1))
-                .stream()
-                .map(SelenideElement::getText)
-                .collect(Collectors.toList());
-
-        for (String spellToCheck : spellsToBePresent) {
-            Assert.assertTrue(displayedSpells.contains(spellToCheck));
-        }
+                .shouldHave(texts(getExpectedSpells()));
     }
 
     @Test
