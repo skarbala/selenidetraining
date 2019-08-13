@@ -1,21 +1,19 @@
 package tests;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
+import base.TestBase;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import base.TestBase;
+import java.util.ArrayList;
+import java.util.List;
 
+import static com.codeborne.selenide.CollectionCondition.textsInAnyOrder;
+import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 
 public class FellowshipTest extends TestBase {
@@ -87,15 +85,10 @@ public class FellowshipTest extends TestBase {
             selectFellow(fellowToSelect);
         }
 
-        List<String> higlightedFellows =
-                driver.findElements(By.xpath("//ul[contains(@class,'list-of-fellows')]/li/div[contains(@class,'active')]//h1"))
-                        .stream()
-                        .map(WebElement::getText)
-                        .collect(Collectors.toList());
-
-        for (String higlightedFellow : higlightedFellows) {
-            Assert.assertTrue(fellowsToSelect.contains(higlightedFellow));
-        }
+        $("ul.list-of-fellows")
+                .findAll("li > div")
+                .filterBy(cssClass("active"))
+                .shouldHave(textsInAnyOrder(fellowsToSelect));
     }
 
     private void selectFellow(String fellowName) {
