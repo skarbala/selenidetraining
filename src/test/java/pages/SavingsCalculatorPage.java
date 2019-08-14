@@ -82,7 +82,7 @@ public class SavingsCalculatorPage {
     }
 
 
-    public WebElement getEmailInputWrapper() {
-        return pageDriver.findElement(By.xpath("//input[@id='emailInput']/.."));
+    public SelenideElement getEmailInputWrapper() {
+        return $(emailInput).parent();
     }
 }

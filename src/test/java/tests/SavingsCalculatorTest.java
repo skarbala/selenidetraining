@@ -13,9 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.SavingsCalculatorPage;
 
-import static com.codeborne.selenide.Condition.empty;
-import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -89,7 +87,8 @@ public class SavingsCalculatorTest extends TestBase {
     @Test
     public void itShouldDisplayErrorMessageWhenEmailIsInvalid() {
         savingsCalculatorPage.enterEmail("invalid");
-        assertTrue(savingsCalculatorPage.getEmailInputWrapper().getAttribute("class").contains("error"));
+
+        savingsCalculatorPage.getEmailInputWrapper().shouldHave(cssClass("error"));
     }
 
     @Test
