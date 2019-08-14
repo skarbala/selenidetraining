@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -51,7 +52,7 @@ public class SavingsCalculatorPage {
     }
 
     public void selectFund(String fundToSelect) {
-        new Select(fundSelect).selectByVisibleText(fundToSelect);
+        $(fundSelect).selectOption(fundToSelect);
     }
 
     public void applyForSaving() {
