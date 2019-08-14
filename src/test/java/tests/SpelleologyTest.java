@@ -10,13 +10,14 @@ import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.open;
 import static utils.DataUtils.getExpectedSpells;
 
 public class SpelleologyTest extends TestBase {
 
     @Before
     public void openPage() {
-        driver.get(BASE_URL + "/spelleology.php");
+        open(BASE_URL + "/spelleology.php");
     }
 
     @Test
