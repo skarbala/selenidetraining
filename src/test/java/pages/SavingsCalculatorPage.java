@@ -73,8 +73,8 @@ public class SavingsCalculatorPage {
         return $(resultElement).find("div", 2).find("p");
     }
 
-    public WebElement getRecentRequestDetail() {
-        return mostRecentSavingsDetail;
+    public SelenideElement getRecentRequestDetail() {
+        return $(mostRecentSavingsDetail);
     }
 
     public SelenideElement getApplyButton() {

@@ -9,8 +9,6 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static org.junit.Assert.assertEquals;
-import static org.openqa.selenium.By.cssSelector;
 
 public class SavingsCalculatorTest extends TestBase {
     private SavingsCalculatorPage savingsCalculatorPage;
@@ -70,11 +68,11 @@ public class SavingsCalculatorTest extends TestBase {
 
         savingsCalculatorPage.applyForSaving();
 
+        savingsCalculatorPage
+                .getRecentRequestDetail()
+                .find("p.fund-description")
+                .shouldHave(exactText(fundToSelect).because("it is very important to display fund name"));
 
-        assertEquals(
-                fundToSelect,
-                savingsCalculatorPage.getRecentRequestDetail().findElement(cssSelector("p.fund-description")).getText()
-        );
     }
 
     @Test
