@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,19 +39,15 @@ public class SavingsCalculatorPage {
     }
 
     public void enterEmail(String email) {
-        emailInput.clear();
-        emailInput.sendKeys(email);
-        emailInput.sendKeys(Keys.TAB);
+        $(emailInput).val(email).pressTab();
     }
 
     public void enterYears(int years) {
-        yearsInput.clear();
-        yearsInput.sendKeys(String.valueOf(years));
+        $(yearsInput).val(String.valueOf(years));
     }
 
     public void enterOneTimeInvestment(String amount) {
-        oneTimeInvestmentInput.clear();
-        oneTimeInvestmentInput.sendKeys(amount);
+        $(oneTimeInvestmentInput).val(amount);
     }
 
     public void selectFund(String fundToSelect) {
@@ -85,7 +80,7 @@ public class SavingsCalculatorPage {
     }
 
 
-    public WebElement getEmailInputWrapper(){
+    public WebElement getEmailInputWrapper() {
         return pageDriver.findElement(By.xpath("//input[@id='emailInput']/.."));
     }
 }
