@@ -52,7 +52,6 @@ public class SavingsCalculatorTest extends TestBase {
         savingsCalculatorPage.enterEmail("info@furbo.sk");
 
         assertFalse(savingsCalculatorPage.getCalculatedRiskElement().getText().isEmpty());
-        assertFalse(savingsCalculatorPage.getCalculatedInterestIncomeElement().getText().isEmpty());
     }
 
 
@@ -68,8 +67,8 @@ public class SavingsCalculatorTest extends TestBase {
         savingsCalculatorPage.applyForSaving();
 
         assertEquals(
-            fundToSelect,
-            savingsCalculatorPage.getRecentRequestDetail().findElement(cssSelector("p.fund-description")).getText()
+                fundToSelect,
+                savingsCalculatorPage.getRecentRequestDetail().findElement(cssSelector("p.fund-description")).getText()
         );
     }
 
