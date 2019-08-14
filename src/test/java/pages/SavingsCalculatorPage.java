@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -60,24 +61,24 @@ public class SavingsCalculatorPage {
     }
 
 
-    public WebElement getCalculatedTotalIncomeElement() {
-        return resultElement.findElement(By.xpath("./div[1]/p"));
+    public SelenideElement getCalculatedTotalIncomeElement() {
+        return $(resultElement).find("div").find("p");
     }
 
-    public WebElement getCalculatedInterestIncomeElement() {
-        return $(By.cssSelector("div.result > div:nth-child(2) p"));
+    public SelenideElement getCalculatedInterestIncomeElement() {
+        return $(resultElement).find("div", 1).find("p");
     }
 
-    public WebElement getCalculatedRiskElement() {
-        return resultElement.findElement(By.xpath("./div[3]/p"));
+    public SelenideElement getCalculatedRiskElement() {
+        return $(resultElement).find("div", 2).find("p");
     }
 
     public WebElement getRecentRequestDetail() {
         return mostRecentSavingsDetail;
     }
 
-    public WebElement getApplyButton() {
-        return applyButton;
+    public SelenideElement getApplyButton() {
+        return $(applyButton);
     }
 
 
