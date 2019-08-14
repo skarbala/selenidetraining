@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import base.TestBase;
@@ -32,6 +33,12 @@ public class RandomTableTest extends TestBase {
             WebElement rowName = tableRow.findElement(By.xpath("./td[2]"));
             Assert.assertFalse(rowName.getText().isEmpty());
         }
+    }
+
+    @Test
+    public void itShouldScrollToLastElement() {
+        WebElement lastRow = driver.findElement(By.cssSelector("table > tbody > tr:last-child"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", lastRow);
     }
 
     private List<WebElement> getRows() {
