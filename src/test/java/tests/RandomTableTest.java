@@ -46,8 +46,7 @@ public class RandomTableTest extends TestBase {
 
     @Test
     public void itShouldScrollToLastElement() {
-        WebElement lastRow = driver.findElement(By.cssSelector("table > tbody > tr:last-child"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", lastRow);
+       $(By.cssSelector("table > tbody > tr:last-child")).scrollIntoView(false);
     }
 
     private List<WebElement> getRows() {
