@@ -20,7 +20,12 @@ public class FellowshipTest extends TestBase {
 
     @Before
     public void openPage() {
-        open(BASE_URL + "/fellowship.php");
+        open( "");
+    }
+
+    @Test
+    public void itShouldName() {
+        System.out.println();
     }
 
     @Test

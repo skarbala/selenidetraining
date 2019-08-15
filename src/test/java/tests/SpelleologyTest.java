@@ -17,7 +17,7 @@ public class SpelleologyTest extends TestBase {
 
     @Before
     public void openPage() {
-        open(BASE_URL + "/spelleology.php");
+        open("/spelleology.php");
     }
 
     @Test

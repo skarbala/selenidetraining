@@ -18,7 +18,7 @@ public class RandomTableTest extends TestBase {
     @Before
     public void openPage() {
         //1.otvorit stranku
-        open(BASE_URL + "/tabulka.php");
+        open("/tabulka.php");
     }
 
     @Test
@@ -41,12 +41,12 @@ public class RandomTableTest extends TestBase {
     @Test
     public void itShouldDisplaySecondRow() {
         System.out.println(driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]")).getText());
-        System.out.println($("table > tbody >tr",1).find("td",3).getText());
+        System.out.println($("table > tbody >tr", 1).find("td", 3).getText());
     }
 
     @Test
     public void itShouldScrollToLastElement() {
-       $(By.cssSelector("table > tbody > tr:last-child")).scrollIntoView(false);
+        $(By.cssSelector("table > tbody > tr:last-child")).scrollIntoView(false);
     }
 
     private List<WebElement> getRows() {

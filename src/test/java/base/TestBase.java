@@ -1,5 +1,6 @@
 package base;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.After;
 import org.junit.Before;
@@ -9,7 +10,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestBase {
     protected WebDriver driver;
-    protected final String BASE_URL = "http://localhost:80";
+
+    static {
+        Configuration.baseUrl = "http://localhost:80";
+    }
+
 
     @Before
     public void setUp() {

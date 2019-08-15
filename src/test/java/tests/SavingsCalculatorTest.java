@@ -15,7 +15,7 @@ public class SavingsCalculatorTest extends TestBase {
 
     @Before
     public void openPage() {
-        open(BASE_URL.concat("/savingscalculator.php"));
+        open("/savingscalculator.php");
         savingsCalculatorPage = new SavingsCalculatorPage();
     }
 
