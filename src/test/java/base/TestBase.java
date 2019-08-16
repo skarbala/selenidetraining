@@ -13,6 +13,8 @@ public class TestBase {
 
     static {
         Configuration.baseUrl = "http://localhost:80";
+        Configuration.timeout = 1000;
+        Configuration.pollingInterval = 100;
     }
 
 
