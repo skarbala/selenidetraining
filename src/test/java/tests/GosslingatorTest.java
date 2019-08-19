@@ -2,25 +2,21 @@ package tests;
 
 import base.TestBase;
 import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
-import org.junit.After;
+import com.codeborne.selenide.junit.ScreenShooter;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.textCaseSensitive;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
 
 public class GosslingatorTest extends TestBase {
+
+    @Rule
+    public ScreenShooter screenShooter = ScreenShooter.failedTests().succeededTests();
 
     @Before
     public void setUp() {
@@ -35,7 +31,7 @@ public class GosslingatorTest extends TestBase {
     @Test
     public void itShouldAddOneRyan() {
         addRyan();
-
+        screenshot("anton");
         $("div.ryan-counter h2").shouldHave(text("1"));
         $("div.ryan-counter h3").shouldHave(text("ryan"));
     }
