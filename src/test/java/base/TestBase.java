@@ -16,7 +16,7 @@ public class TestBase {
         Configuration.startMaximized = true;
         Configuration.clickViaJs = true;
 //        Configuration.holdBrowserOpen = true;
-
+        Configuration.reportsFolder = "src/test/resources/reportaze";
 //        Configuration.remote = "http://localhost:4444/wd/hub";
     }
 
