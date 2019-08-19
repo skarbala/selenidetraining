@@ -1,6 +1,9 @@
 package tests;
 
+import base.TestBase;
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.After;
 import org.junit.Assert;
@@ -14,18 +17,14 @@ import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.textCaseSensitive;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class GosslingatorTest {
-
-    private WebDriver driver;
+public class GosslingatorTest extends TestBase {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/win/chromedriver75_win.exe");
-        driver = new ChromeDriver();
-        WebDriverRunner.setWebDriver(driver);
-        open("http://localhost:80/gosslingator.php");
+        open("/gosslingator.php");
     }
 
     @Test
@@ -65,10 +64,13 @@ public class GosslingatorTest {
         Assert.assertEquals(0, driver.findElements(By.cssSelector("img")).size());
     }
 
-    @After
-    public void tearDown() {
-        driver.close();
-        driver.quit();
+    @Test
+    public void itShouldRemoveRyanHeadByClickingOnImage() {
+        addRyan(30);
+
+        $$("img").forEach(SelenideElement::click);
+
+        $$("img").shouldHave(CollectionCondition.size(0));
     }
 
     private void addRyan() {
