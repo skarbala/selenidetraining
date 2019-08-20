@@ -1,7 +1,9 @@
 package tests;
 
 import base.TestBase;
+import com.codeborne.selenide.junit.TextReport;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import pages.SavingsCalculatorPage;
 
@@ -12,6 +14,9 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class SavingsCalculatorTest extends TestBase {
     private SavingsCalculatorPage savingsCalculatorPage;
+
+    @Rule
+    public TextReport textReport = new TextReport().onFailedTest(true).onSucceededTest(true);
 
     @Before
     public void openPage() {
