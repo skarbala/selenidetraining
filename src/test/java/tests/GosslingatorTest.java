@@ -66,7 +66,7 @@ public class GosslingatorTest extends TestBase {
 
     @Test
     public void itShouldDisplayNoRyanOnPageOpen() {
-        Assert.assertEquals(0, driver.findElements(By.cssSelector("img")).size());
+        $$("img").shouldHave(size(0));
     }
 
     @Test
@@ -75,7 +75,7 @@ public class GosslingatorTest extends TestBase {
 
         $$("img").forEach(SelenideElement::click);
 
-        $$("img").shouldHave(CollectionCondition.size(0));
+        $$("img").shouldHave(size(0));
     }
 
     private void addRyan() {

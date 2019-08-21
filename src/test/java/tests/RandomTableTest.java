@@ -2,6 +2,7 @@ package tests;
 
 import java.util.List;
 
+import com.codeborne.selenide.ElementsCollection;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import base.TestBase;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class RandomTableTest extends TestBase {
@@ -30,7 +32,7 @@ public class RandomTableTest extends TestBase {
 
     @Test
     public void itShouldContainNameForEachRow() {
-        List<WebElement> tableRows = getRows();
+       ElementsCollection tableRows = getRows();
         for (WebElement tableRow : tableRows) {
             tableRow.findElement(By.cssSelector("td:nth-child(2)"));
             WebElement rowName = tableRow.findElement(By.xpath("./td[2]"));
@@ -40,7 +42,7 @@ public class RandomTableTest extends TestBase {
 
     @Test
     public void itShouldDisplaySecondRow() {
-        System.out.println(driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]")).getText());
+//        System.out.println(driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]")).getText());
         System.out.println($("table > tbody >tr", 1).find("td", 3).getText());
     }
 
@@ -49,7 +51,7 @@ public class RandomTableTest extends TestBase {
         $(By.cssSelector("table > tbody > tr:last-child")).scrollIntoView(false);
     }
 
-    private List<WebElement> getRows() {
-        return driver.findElements(By.cssSelector("table tbody tr"));
+    private ElementsCollection getRows() {
+        return $$("table tbody tr");
     }
 }

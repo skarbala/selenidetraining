@@ -36,7 +36,7 @@ public class WaitForItTest extends TestBase {
         $(byId("waitForProperty")).shouldHave(cssClass("error"));
     }
 
-    @Test
+       @Test
     public void itShouldDisplayResponseTimeMessageSelenide() {
         $(By.id("startWaitForText")).click();
 
@@ -47,23 +47,18 @@ public class WaitForItTest extends TestBase {
     public void itShouldDisplayResponseTimeMessage() {
         $(By.id("startWaitForText")).click();
 
-        new WebDriverWait(driver, 10).until(ExpectedConditions.textToBePresentInElement(
-                driver.findElement(By.cssSelector("div.current-wait-time")), "Response time"));
-
-        Assert.assertTrue(driver.findElement(By.cssSelector("div.current-wait-time"))
-                .getText()
-                .contains("Response time"));
+        $("div.current-wait-time").shouldHave(text("Response time"));
     }
 
-    @Test
-    public void itShouldDisplayResponseTimeMessageThreadSleep() throws InterruptedException {
-        $(By.id("startWaitForText")).click();
-
-        Thread.sleep(3000);
-        Assert.assertTrue(driver.findElement(By.cssSelector("div.current-wait-time"))
-                .getText()
-                .contains("Response time"));
-    }
+//    @Test
+//    public void itShouldDisplayResponseTimeMessageThreadSleep() throws InterruptedException {
+//        $(By.id("startWaitForText")).click();
+//
+//        Thread.sleep(3000);
+//        Assert.assertTrue(driver.findElement(By.cssSelector("div.current-wait-time"))
+//                .getText()
+//                .contains("Response time"));
+//    }
 
 
 }
