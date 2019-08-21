@@ -2,12 +2,10 @@ package tests;
 
 import base.TestBase;
 import com.codeborne.selenide.AssertionMode;
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.junit.ScreenShooter;
 import com.codeborne.selenide.junit.SoftAsserts;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
