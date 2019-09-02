@@ -1,152 +1,91 @@
-opens objects
-Summons an object
-Hides things from younger people
+summons an object
 shoots water from wand
-shoots things high in the air
 opens locked objects
 clears the target's airway
-turns head hair into antlers
-prevents cheating on exams
 reveals invisible ink
-teleportation spell
-blasts away spiders
-shoots water from wand
-slows down objects
-moves an object upward
 murders opponent
 turns small objects into birds
 launches birds from your wand
-makes a person babble
-causes explosions
-causes large explosions
-puts a person's head in a protective air bubble
-shoots a rope from a wand to snag things
-detects enemies and emits a scream
-detects enemies and emits an alarm
-makes a person happy and giddy
-opens things
-locks doors
-makes a person's shoes stick to the ground
-makes an object change colour
-explode flames on target
-used to confuse opponent
-damages opponent's eyesight
-gives a person cereal skin
+strengthens an enclosure from enemies
+magically locks door
+explodes flames on target
+confuses opponent
+damages opponents eyesight
 tortures a person
-helps cushon a fall
-dig out materials
-counters "Prior Incantato"
+digs out materials
+counters `prior incatato`
 enlarges teeth
-wind damaging spell
-drives an object away
-moves an object downwards
+blasts holes through walls and floors
 splits seams
-shrinks the target
-opens passageways
-makes the target blend into the surroundings
+opens `one eyed witch` hump
 makes objects hard
-dries up puddles
-gives a person kumquat ears
-cause a person's ear to shrivel
-enlarges an item
-counters Stupefy
-expel entrails from a body
+enlarges and item
+counters stupefy
 heals minor injuries
-binds objects together
-builds things
-makes things vanish
-throws a victim backwards
-creates a Patronus
+erects things
+creates a patronus
 disarms your opponent
 makes objects explode
-puts out fires
 creates bandages
-defensive charm
 hides a secret within someone
-hard to control large fire curse
-turns windows to dust
-finishes spell in the caster's area
 stops any current spells
-multiplies and burns objects upon touch
 allows user to write on objects
-makes flames cool
 knocks an object backwards
-makes objects fly
-a defensive cloud of smoke
 produces boils on opponent
 duplicates an object
 turns stairs into ramps
-makes it easier to hold things
-mends broken things
 reveals humans nearby
-lets a person track another's movement on a map
-Lockhart's warewolf "cure"
-allows wizard to put their soul into an object
-makes text unreadable
-renders target immobile
+cures werewolves (at least according to lockhart)
+renders target immobile.
 slows an advancing object
-controls a person
+controls a person – unforgivable
 makes an object repel water
 ties someone up
 starts a fire
-shoots a fireball from caster's wand
 glues opponent's tongue to roof of mouth
-allows caster to read the mind of the target
-hangs target upside down by feet
-counter spell to Levicorpus
-locks opponent's legs
+allows the caster to delve into the mind of the victim
+hangs victim upside down by feet
+counterspells
+locks opponents legs
 creates light at wand tip
-creates ball of light that can brighten a room for a long period of time
-creates a strong beam of light from the wand
 causes weather effect spells to stop
-tongue ties it's target
 moves objects with wand
-moves unconcious bodies
+moves unconscious bodies
 conjures the dark mark
 prevents nearby people from listening to conversations
-counter to Lumos, turns off light
-repairs eyeglasses
-removes footprints
+counters lumos
 erases memories
 blindfolds the victim
 makes conjured items attack
-conjures flowers
-makes fireworks from the wand tip
-causes items to permanently stick to things
-body bind
-animates statues and suits of armor
-wand acts like a compass
-makes an object a Portkey
-when sibling wands duel, the weaker wand shows all recently cast spells
-reveals a wand's last spell
-cause spells to reflect back to the sender
-area protection charm
-counter spell for Sonorous
-returns items to original size. counters Engorgio
+conjures a bunch of flowers
+packs a trunk (suitcase)
+removes pixies (maybe)
+binds body – unforgivable
+animates statues and armor suits
+makes wand act like a compass
+echoes most recent spells, result when brother wands duel
+reveals a wands last spell / cast
+causes spells to reflect back to the sender.
+protects one from dark magic
+protects area
+counters sonorus
+returns items to original size. counters engorgio
 blasts solid objects aside
 releases user from binding
-cures unconciousness
+cures unconsciousness
 repairs things
 keeps muggles away
-keeps evil beings away
-reveals hidden objects
-tickles target
-causes target to laugh and defeats Boggarts
-protection against hexes
-cleaning charm
+tickles opponent
+turns boggart into ridiculous form so you can laugh it away
+protects against hexes
+destroys ectoplasm (remains of ghosts)
 causes wounds as if slashed by a sword
-produces a snake
-silences target
-makes target vomit slugs
+produces snake
+silences victim
 amplifies voice
 reveals hidden secrets or magical properties
-makes target feel stinging
-knocks out target
-switches objects
-forces target to dance
+knocks out opponent
+forces opponent to dance
 cleans up messes
-a vow that if broken, kills you
-heals target
 unsticks an object
-makes an object fly
-makes an object fly
+makes on object fly
