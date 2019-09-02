@@ -1,15 +1,13 @@
 package base;
 
 import com.codeborne.selenide.Configuration;
-import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.WebDriver;
 
 public class TestBase {
 
     static {
         Configuration.baseUrl = "http://localhost:80";
-        Configuration.timeout = 1000;
+        Configuration.timeout = 4000;
         Configuration.pollingInterval = 100;
 //        Configuration.headless = true;
         Configuration.startMaximized = true;
