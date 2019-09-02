@@ -36,11 +36,11 @@ public class WaitForItTest extends TestBase {
         $(byId("waitForProperty")).shouldHave(cssClass("error"));
     }
 
-       @Test
+    @Test
     public void itShouldDisplayResponseTimeMessageSelenide() {
         $(By.id("startWaitForText")).click();
 
-        $("div.current-wait-time").shouldHave(text("Response time was refer"));
+        $("div.current-wait-time").shouldHave(text("Response time was"));
     }
 
     @Test

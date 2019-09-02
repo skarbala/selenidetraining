@@ -35,12 +35,11 @@ public class GosslingatorTest extends TestBase {
 
     @Test
     public void itShouldAddOneRyan() {
-        Configuration.assertionMode = AssertionMode.SOFT;
         addRyan();
         screenshot("anton");
 
-        $("div.ryan-counter h2").shouldHave(text("blud"));
-        $("div.ryan-counter h3").shouldHave(text("wfwefw"));
+        $("div.ryan-counter h2").shouldHave(text("1"));
+        $("div.ryan-counter h3").shouldHave(text("ryan"));
     }
 
     @Test
