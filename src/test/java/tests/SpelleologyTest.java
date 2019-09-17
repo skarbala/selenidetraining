@@ -21,7 +21,12 @@ public class SpelleologyTest extends TestBase {
 
     @Test
     public void itShouldContainSpells() {
-        String[] spellsToBePresent = {"produces a snake", "enlarges an item", "repairs things", "controls a person"};
+        String[] spellsToBePresent = {
+                "counters sonorus",
+                "erases memories",
+                "counterspells",
+                "controls a person – unforgivable"
+        };
 
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("ul.spells li")));
