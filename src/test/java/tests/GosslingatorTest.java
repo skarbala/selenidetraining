@@ -17,11 +17,7 @@ public class GosslingatorTest {
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver75_mac");
-        //0.spustit prehliadac
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless");
-        driver = new ChromeDriver(chromeOptions);
-        //1.otvorit stranku
+        driver = new ChromeDriver();
         driver.get("http://localhost:8888/gosslingator.php");
     }
 
@@ -60,11 +56,11 @@ public class GosslingatorTest {
             addRyanButton.click();
         }
         Assert.assertEquals(
-            "NUMBER OF\n" +
-                "RYANS\n" +
-                "IS TOO DAMN\n" +
-                "HIGH",
-            driver.findElement(By.cssSelector("h1.tooManyRyans")).getText()
+                "NUMBER OF\n" +
+                        "RYANS\n" +
+                        "IS TOO DAMN\n" +
+                        "HIGH",
+                driver.findElement(By.cssSelector("h1.tooManyRyans")).getText()
         );
     }
 
