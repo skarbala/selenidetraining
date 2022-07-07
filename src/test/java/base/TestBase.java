@@ -8,11 +8,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestBase {
     protected WebDriver driver;
-    protected final String BASE_URL = "http://localhost:8888";
+    protected final String BASE_URL = "http://localhost:80";
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/mac/chromedriver75_mac");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/win/chromedriver.exe");
         driver = new ChromeDriver();
     }
 

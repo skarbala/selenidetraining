@@ -16,9 +16,9 @@ public class GosslingatorTest {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver75_mac");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/win/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("http://localhost:8888/gosslingator.php");
+        driver.get("http://localhost:80/gosslingator.php");
     }
 
     @Test
