@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 
 import base.TestBase;
 
+import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -22,6 +23,7 @@ public class FellowshipTest extends TestBase {
     public void openPage() {
         open(BASE_URL + "/fellowship.php");
     }
+
 
     @Test
     public void itShouldContainNameForEachFellow() {
