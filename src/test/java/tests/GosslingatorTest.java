@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,6 +11,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
 public class GosslingatorTest {
 
     private WebDriver driver;
@@ -18,32 +22,43 @@ public class GosslingatorTest {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/win/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("http://localhost:80/gosslingator.php");
+        WebDriverRunner.setWebDriver(driver);  // otherwise, selenide would open its own driver
+        open("http://localhost:80/gosslingator.php");
     }
 
     @Test
     public void itShouldDisplayTitle() {
-        Assert.assertEquals("GOSLINGATE ME", driver.findElement(By.cssSelector(".ryan-title")).getText());
+        Assert.assertEquals("GOSLINGATE ME", $(By.cssSelector(".ryan-title")).getText());
+    }
+
+    @Test
+    public void itShouldFindImage(){
+        // With Selenium
+        $(By.cssSelector("img"));  // will crash with elementNotFoundException
+
+        // With Selenide
+        // Selenide knows it is CSS selector, you need not specify with By.cssSelector()
+        $("img");  // Will NOT crash
     }
 
     @Test
     public void itShouldAddOneRyan() {
-        driver.findElement(By.id("addRyan")).click();
+        $(By.id("addRyan")).click();
 
-        String actualNumberOfRyans = driver.findElement(By.id("ryanCounter")).getText();
+        String actualNumberOfRyans = $(By.id("ryanCounter")).getText();
         Assert.assertEquals("1", actualNumberOfRyans);
 
-        System.out.println("Number of ryans: " + driver.findElement(By.cssSelector("div.ryan-counter h2")).getText());
-        Assert.assertEquals("ryan", driver.findElement(By.cssSelector("div.ryan-counter h3")).getText());
+        System.out.println("Number of ryans: " + $(By.cssSelector("div.ryan-counter h2")).getText());
+        Assert.assertEquals("ryan", $(By.cssSelector("div.ryan-counter h3")).getText());
     }
 
     @Test
     public void itShouldTwoRyans() {
-        driver.findElement(By.id("addRyan")).click();
-        driver.findElement(By.id("addRyan")).click();
+        $(By.id("addRyan")).click();
+        $(By.id("addRyan")).click();
 
-        String actualNumberOfRyans = driver.findElement(By.id("ryanCounter")).getText();
-        String actualRyanDescription = driver.findElement(By.cssSelector("div.ryan-counter h3")).getText();
+        String actualNumberOfRyans = $(By.id("ryanCounter")).getText();
+        String actualRyanDescription = $(By.cssSelector("div.ryan-counter h3")).getText();
 
         Assert.assertEquals("2", actualNumberOfRyans);
         Assert.assertEquals("ryans", actualRyanDescription);
@@ -51,7 +66,7 @@ public class GosslingatorTest {
 
     @Test
     public void itShouldDisplayWarningMessage() {
-        WebElement addRyanButton = driver.findElement(By.id("addRyan"));
+        WebElement addRyanButton = $(By.id("addRyan"));
         for (int i = 0; i < 50; i++) {
             addRyanButton.click();
         }
@@ -60,7 +75,7 @@ public class GosslingatorTest {
                         "RYANS\n" +
                         "IS TOO DAMN\n" +
                         "HIGH",
-                driver.findElement(By.cssSelector("h1.tooManyRyans")).getText()
+                $(By.cssSelector("h1.tooManyRyans")).getText()
         );
     }
 

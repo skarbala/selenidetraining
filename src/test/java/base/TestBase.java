@@ -1,5 +1,6 @@
 package base;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +14,7 @@ public class TestBase {
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/win/chromedriver.exe");
+        WebDriverRunner.setWebDriver(driver);
         driver = new ChromeDriver();
     }
 

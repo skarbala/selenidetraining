@@ -13,11 +13,14 @@ import org.openqa.selenium.WebElement;
 
 import base.TestBase;
 
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
+
 public class FellowshipTest extends TestBase {
 
     @Before
     public void openPage() {
-        driver.get(BASE_URL + "/fellowship.php");
+        open(BASE_URL + "/fellowship.php");
     }
 
     @Test
@@ -56,7 +59,7 @@ public class FellowshipTest extends TestBase {
             selectFellow(fellowToSelect);
         }
 
-        Assert.assertEquals("Complete", driver.findElement(By.cssSelector("div.points-left h3")).getText());
+        Assert.assertEquals("Complete", $("div.points-left h3").getText());
     }
 
     @Test
@@ -82,19 +85,29 @@ public class FellowshipTest extends TestBase {
             selectFellow(fellowToSelect);
         }
 
-        List<String> higlightedFellows =
+        List<String> highlightedFellows =
                 driver.findElements(By.xpath("//ul[contains(@class,'list-of-fellows')]/li/div[contains(@class,'active')]//h1"))
                         .stream()
                         .map(WebElement::getText)
                         .collect(Collectors.toList());
 
-        for (String higlightedFellow : higlightedFellows) {
-            Assert.assertTrue(fellowsToSelect.contains(higlightedFellow));
+        for (String highlightedFellow : highlightedFellows) {
+            Assert.assertTrue(fellowsToSelect.contains(highlightedFellow));
         }
     }
 
     private void selectFellow(String fellowName) {
-        driver.findElement(By.xpath("//h1[contains(text(),'" + fellowName + "')]")).click();
+        // Plain old Selenium
+        $(By.xpath("//h1[contains(text(),'" + fellowName + "')]")).click();
+
+        // Selenide thinks it is css selector, that is not true
+        $("//h1[contains(text(),'" + fellowName + "')]").click();
+
+        // You specify x so Selenide is not confused
+        $x("//h1[contains(text(),'" + fellowName + "')]").click();
+
+        // byText() simplifies some xpath
+        $(byText(fellowName)).click();
     }
 
     private List<WebElement> getFellowElements() {

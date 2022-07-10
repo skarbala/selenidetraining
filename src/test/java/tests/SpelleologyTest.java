@@ -12,11 +12,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
 public class SpelleologyTest extends TestBase {
 
     @Before
     public void openPage() {
-        driver.get(BASE_URL + "/spelleology.php");
+        open(BASE_URL + "/spelleology.php");
     }
 
     @Test
@@ -53,13 +56,13 @@ public class SpelleologyTest extends TestBase {
         }
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.modal-container")));
-        WebElement modal = driver.findElement(By.cssSelector("div.modal-container"));
+        WebElement modal = $(By.cssSelector("div.modal-container"));
         Assert.assertTrue(modal.getText().contains("Crucio"));
     }
 
     @Test
     public void itShouldFilterSpells() {
-        driver.findElement(By.cssSelector("input")).sendKeys("tortures a person");
+        $(By.cssSelector("input")).sendKeys("tortures a person");
         new WebDriverWait(driver, 10).until(ExpectedConditions
                 .numberOfElementsToBe(By.cssSelector("ul.spells li"), 1));
         Assert.assertEquals(driver.findElements(By.cssSelector("ul.spells li")).size(), 1);
